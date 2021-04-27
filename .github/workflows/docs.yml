@@ -1,0 +1,61 @@
+name: "docs"
+on:
+- push
+- pull_request
+
+jobs:
+  docs:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    # - uses: ammaraskar/sphinx-action@master
+    - name: Install deps
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y --no-install-recommends kicad kicad-libraries zip \
+            inkscape make git libmagickwand-dev python3 python3-pip python3-wheel \
+            python3-setuptools inkscape libgraphicsmagick1-dev libmagickcore-dev openscad
+        sudo pip3 install \
+            "Pcbdraw ~= 0.6" \
+            "numpy ~= 1.20" \
+            "shapely ~= 1.7" \
+            "click ~= 7.1" \
+            "markdown2 ~= 2.4" \
+            "pybars3 ~= 0.9" \
+            "solidpython ~= 1.1" \
+            sphinx
+        git clone https://github.com/yaqwsx/KiKit
+        cd KiKit
+        sudo python3 setup.py install
+        cd ..
+        mkdir -p ~/.local/share/pcbdraw/footprints/
+        git clone https://github.com/yaqwsx/PcbDraw-Lib/
+        echo ls:
+        ls
+        echo
+        cp -r PcbDraw-Lib/* ~/.local/share/pcbdraw/footprints/
+        cat ~/.local/share/pcbdraw/footprints/README.md
+    - name: Build docs
+      run: |
+          cd docs/
+          make html
+    - name: Commit documentation changes
+      run: |
+        git clone https://github.com/nobodywasishere/sphinx-pcbdraw.git --branch gh-pages --single-branch gh-pages
+        cd gh-pages
+        git rm -rf .
+        git clean -fxd
+        cp -r ../docs/_build/html/* .
+        touch .nojekyll
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add .
+        git commit -m "Update documentation" -a || true
+        # The above command will fail if no changes were present, so we ignore
+        # the return code.
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        branch: gh-pages
+        directory: gh-pages
+        github_token: ${{ secrets.GITHUB_TOKEN }}

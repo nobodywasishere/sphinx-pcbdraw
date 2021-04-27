@@ -11,6 +11,16 @@ class PCBDraw(Directive):
     has_content = True
 
     def run(self):
+        try:
+            import pcbnew
+        except Exception as e:
+            logger.error(e)
+            return [nodes.error(
+                None,
+                nodes.paragraph(text=("sphinx-pcbdraw: "
+                    + str(e))),
+            )]
+
         pcb_file = self.content[0]
         if os.path.exists(pcb_file):
             logger.info("File exists")
@@ -18,20 +28,24 @@ class PCBDraw(Directive):
             logger.error("File does not exist")
             return [nodes.error(
                 None,
-                nodes.paragraph(text="File does not exist:"),
-                nodes.paragraph(text=pcb_file)
+                nodes.paragraph(text=("sphinx-pcbdraw: "
+                    "File does not exist: " + pcb_file)),
             )]
+
         options = ""
         outfile = pcb_file + ".svg"
+
         cmd = "pcbdraw {options} {infile} {outfile}".format(
             options=options,
             infile=pcb_file,
             outfile=outfile
         )
         subprocess.run(cmd, shell=True)
-        par = "<img src='{src}'/>".format(src=outfile)
+
+        par = "<img src='_images/{src}'/>".format(src=outfile)
         paragraph_node = nodes.image()
         paragraph_node['uri'] = outfile
+
         return [paragraph_node]
 
 def setup(app):

@@ -1,3 +1,4 @@
 _build
 */*.kicad_pcb.svg
 __pycache__
+env
