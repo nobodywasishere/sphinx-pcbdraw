@@ -7,7 +7,6 @@ This is a basic Sphinx extension for creating board views from KiCAD ``.kicad_pc
 .. _KiCAD: https://www.kicad.org/
 .. _KiKit: https://github.com/yaqwsx/KiKit
 
-
 pcbdraw directive
 +++++++++++++++++
 
@@ -33,11 +32,20 @@ Here are some examples.
    :placeholder:
    :no-drillholes:
 
+
+.. code-block:: rst
+
+   .. pcbdraw:: NINA-W102_minimal_breakout.kicad_pcb
+
+.. pcbdraw:: NINA-W102_minimal_breakout.kicad_pcb
+
+
 .. code-block:: rst
 
    .. pcbdraw:: ThisFileDoesntExist.kicad_pcb
 
 .. pcbdraw:: ThisFileDoesntExist.kicad_pcb
+
 
 options
 -------
@@ -83,10 +91,10 @@ Components from both sides can be specificed.:
 
 .. code-block:: rst
 
-   .. pcb-components:: UPduino_v3.0.kicad_pcb
+   .. pcb-components:: NINA-W102_minimal_breakout.kicad_pcb
       :side: both
       
-.. pcb-components:: UPduino_v3.0.kicad_pcb
+.. pcb-components:: NINA-W102_minimal_breakout.kicad_pcb
    :side: both
 
 TODO
@@ -102,4 +110,11 @@ pcbdraw global options
     sphinx_pcbdraw_hidden = ["component1", "component2"] # list of components to hide from all designs
 
 
+License
++++++++
+
+sphinx-pcbdraw is under the MIT license. Source code is avaiable at https://github.com/nobodywasishere/sphinx-pcbdraw.
+
 Example kicad_pcb file `UPduino_v3.0.kicad_pcb` from https://github.com/tinyvision-ai-inc/UPduino-v3.0, Copyright tinyvision-ai-inc under the MIT License.
+
+Example kicad_pcb file `NINA-W102_minimal_breakout.kicad_pcb` from https://github.com/rac2030/breakout-boards, Copyright Michel Racic under the MIT License.

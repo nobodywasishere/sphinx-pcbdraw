@@ -97,7 +97,10 @@ class PCBDraw(Directive):
 
         subprocess.run("mkdir -p _build/pcbdraw/", shell=True)
 
-        outfile = "_build/pcbdraw/" + pcb_file + outfileopt + ".svg"
+        # I know this isn't the correct way to do this, and that I should break this out
+        # into a node + node visitor instead
+        full_path = os.path.abspath("_build/pcbdraw/")
+        outfile = os.path.join(full_path, pcb_file + outfileopt + ".svg")
 
         cmd = "pcbdraw {infile} {outfile} {options}".format(
             options=options,
@@ -108,7 +111,8 @@ class PCBDraw(Directive):
         subprocess.run(cmd, shell=True)
 
         image_node = nodes.image()
-        image_node['uri'] = outfile
+        # for some reason it likes to remove the leading forward slash
+        image_node['uri'] = "/" + outfile
         image_node['width'] = self.options['width'] if 'width' in self.options else '100%'
 
         return [image_node]
@@ -193,7 +197,6 @@ def visit_pcb_components_node(self, node):
     self.body.append(table_str)
 
 def depart_pcb_components_node(self, node):
-    # print("self:", str(self))
     pass
 
 def setup(app):
