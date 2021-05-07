@@ -7128,7 +7128,7 @@
 <g>
 </g>
 </g> 
-</g></g></g><g transform="translate(-39780, -30711)" id="highlightContainer"/><g transform="translate(-39780, -30711)" id="componentContainer"><!--Resistor_SMD:R_0603_1608Metric--><g transform="translate(60669 34212) scale(393.700787402) rotate(-180.0) translate(-0.7982628345489502, -0.3740827441215515)"><metadata xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" id="pref_11_metadata15">
+</g></g></g><g transform="translate(-39780, -30711)" id="highlightContainer"/><g transform="translate(-39780, -30711)" id="componentContainer"><rect x="48664" y="33586" width="300" height="300" style="fill:red;"/><rect x="54170" y="35520" width="300" height="300" style="fill:red;"/><!--Resistor_SMD:R_0603_1608Metric--><g transform="translate(60669 34212) scale(393.700787402) rotate(-180.0) translate(-0.7982628345489502, -0.3740827441215515)"><metadata xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" id="pref_11_metadata15">
     <RDF>
       <Work rdf:about="">
         <format>image/svg+xml</format>
@@ -7484,7 +7484,7 @@
   <namedview xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" inkscape:current-layer="svg2" inkscape:window-maximized="0" inkscape:window-y="18" inkscape:window-x="0" inkscape:cy="-3.8108775" inkscape:cx="2.9625363" inkscape:zoom="64" showgrid="false" id="pref_36_namedview11" inkscape:window-height="1040" inkscape:window-width="1916" inkscape:pageshadow="2" inkscape:pageopacity="0" guidetolerance="10" gridtolerance="10" objecttolerance="10" borderopacity="1" bordercolor="#666666" pagecolor="#ffffff" fit-margin-top="0" fit-margin-left="0" fit-margin-right="0" fit-margin-bottom="0"/>
   <path xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" style="opacity:0.95999995;fill:#d6dcdb;stroke:#99abb0;stroke-width:0.0521144;stroke-linecap:round" inkscape:connector-curvature="0" id="pref_36_path5" d="m 0.0260572,0.7780072 v -0.74794 h 0.24643803 v 0.74794 z m 1.2978328,-0.004 v -0.74795 h 0.2464381 v 0.74795 z"/>
   <path xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" style="opacity:0.95999995;fill:#e1dc9c;fill-opacity:1;stroke:#6d6d6d;stroke-width:0.06478879;stroke-linecap:round" inkscape:connector-curvature="0" id="pref_36_path7" d="m 0.29949167,0.7695472 -0.006823,-0.7355 H 1.2963345 l 0.00682,0.7355 z"/>
-  </g><!--TestPoint:TestPoint_Pad_D1.0mm--><g transform="translate(43100 37500) scale(393.700787402) rotate(-0.0) translate(-0.5, -0.5)"><metadata xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" id="pref_37_metadata15">
+  </g><rect x="58825" y="34100" width="300" height="300" style="fill:red;"/><!--TestPoint:TestPoint_Pad_D1.0mm--><g transform="translate(43100 37500) scale(393.700787402) rotate(-0.0) translate(-0.5, -0.5)"><metadata xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" id="pref_37_metadata15">
     <RDF>
       <Work rdf:about="">
         <format>image/svg+xml</format>
@@ -7607,7 +7607,7 @@
     <path d="m -0.7730949,354.70716 v -0.72136 h 0.2383783 v 0.72136 z m 1.2553873,-0.004 v -0.72136 h 0.2383783 v 0.72136 z" id="pref_46_path5" inkscape:connector-curvature="0" style="opacity:1;fill:#d6dcdb;stroke:#99abb0;stroke-width:0.05033585;stroke-linecap:round"/>
     <path d="m -0.508603,354.69899 -0.0066,-0.70935 h 0.970841 l 0.0066,0.70935 z" id="pref_46_path7" inkscape:connector-curvature="0" style="opacity:1;fill:#191919;stroke:#6d6d6d;stroke-width:0.06257769;stroke-linecap:round"/>
   </g>
-  </g><!--vs:ShortedJumper-2_P1.3mm_Bridged_Pad1.0x1.0mm--><g transform="translate(43900 36200) scale(393.700787402) rotate(-180.0) translate(-1.1500000953674316, -0.5)"><metadata xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" id="pref_47_metadata15">
+  </g><rect x="40204" y="34101" width="300" height="300" style="fill:red;"/><rect x="42330" y="35086" width="300" height="300" style="fill:red;"/><!--vs:ShortedJumper-2_P1.3mm_Bridged_Pad1.0x1.0mm--><g transform="translate(43900 36200) scale(393.700787402) rotate(-180.0) translate(-1.1500000953674316, -0.5)"><metadata xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" id="pref_47_metadata15">
     <RDF>
       <Work rdf:about="">
         <format>image/svg+xml</format>
@@ -7620,7 +7620,7 @@
   <namedview xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" inkscape:current-layer="svg2" inkscape:window-maximized="1" inkscape:window-y="33" inkscape:window-x="0" inkscape:cy="51.723147" inkscape:cx="16.612728" inkscape:zoom="4.6529835" showgrid="false" id="pref_47_namedview11" inkscape:window-height="1019" inkscape:window-width="1920" inkscape:pageshadow="2" inkscape:pageopacity="0" guidetolerance="10" gridtolerance="10" objecttolerance="10" borderopacity="1" bordercolor="#666666" pagecolor="#ffffff" inkscape:document-rotation="0"/>
   <rect style="opacity:0.95;fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:3.15001;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" width="0.90000004" height="0.90000004" x="0.050000001" y="0.050000001" id="pref_47_rect5" ry="0.3257609"/>
   <rect style="opacity:0.95;fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:3.15;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" width="0.90000004" height="0.90000004" x="1.35" y="0.050000001" id="pref_47_rect5-6" ry="0.3257609"/>
-</g><!--Resistor_SMD:R_0603_1608Metric.back--><g transform="translate(52862 36480) scale(393.700787402) rotate(-90.0) translate(-0.09999550133943558, -0.10003144294023514)"><metadata xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" id="pref_48_metadata15">
+</g><rect x="43520" y="34120" width="300" height="300" style="fill:red;"/><rect x="49144" y="35006" width="300" height="300" style="fill:red;"/><!--Resistor_SMD:R_0603_1608Metric.back--><g transform="translate(52862 36480) scale(393.700787402) rotate(-90.0) translate(-0.09999550133943558, -0.10003144294023514)"><metadata xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" id="pref_48_metadata15">
     <RDF>
       <Work rdf:about="">
         <format>image/svg+xml</format>
@@ -7664,7 +7664,7 @@
   </metadata>
   <defs id="pref_51_defs13"/>
   <namedview xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" inkscape:current-layer="svg2" inkscape:window-maximized="0" inkscape:window-y="0" inkscape:window-x="960" inkscape:cy="1.2540129" inkscape:cx="-0.15458594" inkscape:zoom="256" showgrid="false" id="pref_51_namedview11" inkscape:window-height="1056" inkscape:window-width="956" inkscape:pageshadow="2" inkscape:pageopacity="0" guidetolerance="10" gridtolerance="10" objecttolerance="10" borderopacity="1" bordercolor="#666666" pagecolor="#ffffff"/>
-  </g><!--vs:QFN-48-1EP_8x8mm_P0.5mm_EP6.2x6.2mm.back--><g transform="translate(56416 34488) scale(393.700787402) rotate(-180.0) translate(-0.09999550133943558, -0.10003144294023514)"><metadata xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" id="pref_52_metadata15">
+  </g><rect x="44290" y="37054" width="300" height="300" style="fill:red;"/><rect x="51700" y="32566" width="300" height="300" style="fill:red;"/><!--vs:QFN-48-1EP_8x8mm_P0.5mm_EP6.2x6.2mm.back--><g transform="translate(56416 34488) scale(393.700787402) rotate(-180.0) translate(-0.09999550133943558, -0.10003144294023514)"><metadata xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" id="pref_52_metadata15">
     <RDF>
       <Work rdf:about="">
         <format>image/svg+xml</format>
@@ -7730,7 +7730,7 @@
   </metadata>
   <defs id="pref_57_defs13"/>
   <namedview xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" inkscape:current-layer="svg2" inkscape:window-maximized="0" inkscape:window-y="0" inkscape:window-x="960" inkscape:cy="1.2540129" inkscape:cx="-0.15458594" inkscape:zoom="256" showgrid="false" id="pref_57_namedview11" inkscape:window-height="1056" inkscape:window-width="956" inkscape:pageshadow="2" inkscape:pageopacity="0" guidetolerance="10" gridtolerance="10" objecttolerance="10" borderopacity="1" bordercolor="#666666" pagecolor="#ffffff"/>
-  </g><!--TestPoint:TestPoint_Pad_D1.0mm.back--><g transform="translate(59507 32185) scale(393.700787402) rotate(-0.0) translate(-0.09999550133943558, -0.10003144294023514)"><metadata xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" id="pref_58_metadata15">
+  </g><rect x="40283" y="36086" width="300" height="300" style="fill:red;"/><!--TestPoint:TestPoint_Pad_D1.0mm.back--><g transform="translate(59507 32185) scale(393.700787402) rotate(-0.0) translate(-0.09999550133943558, -0.10003144294023514)"><metadata xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" id="pref_58_metadata15">
     <RDF>
       <Work rdf:about="">
         <format>image/svg+xml</format>
@@ -8027,7 +8027,7 @@
   </metadata>
   <defs id="pref_84_defs13"/>
   <namedview xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" inkscape:current-layer="svg2" inkscape:window-maximized="0" inkscape:window-y="0" inkscape:window-x="960" inkscape:cy="1.2540129" inkscape:cx="-0.15458594" inkscape:zoom="256" showgrid="false" id="pref_84_namedview11" inkscape:window-height="1056" inkscape:window-width="956" inkscape:pageshadow="2" inkscape:pageopacity="0" guidetolerance="10" gridtolerance="10" objecttolerance="10" borderopacity="1" bordercolor="#666666" pagecolor="#ffffff"/>
-  </g><!--vs:PinHeader_1x24_P2.54mm_Vertical.back--><g transform="translate(63118 31496) scale(393.700787402) rotate(-270.0) translate(-0.09999550133943558, -0.10003144294023514)"><metadata xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" id="pref_85_metadata15">
+  </g><rect x="61582" y="34846" width="300" height="300" style="fill:red;"/><!--vs:PinHeader_1x24_P2.54mm_Vertical.back--><g transform="translate(63118 31496) scale(393.700787402) rotate(-270.0) translate(-0.09999550133943558, -0.10003144294023514)"><metadata xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" id="pref_85_metadata15">
     <RDF>
       <Work rdf:about="">
         <format>image/svg+xml</format>
@@ -8236,7 +8236,7 @@
   </metadata>
   <defs id="pref_103_defs13"/>
   <namedview xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" inkscape:current-layer="svg2" inkscape:window-maximized="0" inkscape:window-y="0" inkscape:window-x="960" inkscape:cy="1.2540129" inkscape:cx="-0.15458594" inkscape:zoom="256" showgrid="false" id="pref_103_namedview11" inkscape:window-height="1056" inkscape:window-width="956" inkscape:pageshadow="2" inkscape:pageopacity="0" guidetolerance="10" gridtolerance="10" objecttolerance="10" borderopacity="1" bordercolor="#666666" pagecolor="#ffffff"/>
-  </g><!--vs:ShortedJumper-2_P1.3mm_Bridged_Pad1.0x1.0mm.back--><g transform="translate(42126 35175) scale(393.700787402) rotate(-180.0) translate(-0.09999550133943558, -0.10003144294023514)"><metadata xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" id="pref_104_metadata15">
+  </g><rect x="41779" y="36857" width="300" height="300" style="fill:red;"/><rect x="41779" y="32842" width="300" height="300" style="fill:red;"/><rect x="60283" y="36857" width="300" height="300" style="fill:red;"/><rect x="60283" y="32842" width="300" height="300" style="fill:red;"/><!--vs:ShortedJumper-2_P1.3mm_Bridged_Pad1.0x1.0mm.back--><g transform="translate(42126 35175) scale(393.700787402) rotate(-180.0) translate(-0.09999550133943558, -0.10003144294023514)"><metadata xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" id="pref_104_metadata15">
     <RDF>
       <Work rdf:about="">
         <format>image/svg+xml</format>

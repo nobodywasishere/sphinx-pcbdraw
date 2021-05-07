@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>sphinx-pcbdraw &#8212; Python  documentation</title>
+    <title>sphinx-pcbdraw &#8212; sphinx-pcbdraw  documentation</title>
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -21,85 +21,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head><body>
-  
-
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          
-
-          <div class="body" role="main">
-            
-  <div class="section" id="sphinx-pcbdraw">
-<h1>sphinx-pcbdraw<a class="headerlink" href="#sphinx-pcbdraw" title="Permalink to this headline">¶</a></h1>
-<p>This is a basic Sphinx extension for creating board views from KiCAD <code class="docutils literal notranslate"><span class="pre">.kicad_pcb</span></code> files and embedding them into a Sphinx document. Utilizes <a class="reference external" href="https://github.com/yaqwsx/PcbDraw">PcbDraw</a> created by yaqwsx. Requires <a class="reference external" href="https://www.kicad.org/">KiCAD</a> and <a class="reference external" href="https://github.com/yaqwsx/KiKit">KiKit</a>.</p>
-<div class="section" id="pcbdraw-directive">
-<h2>pcbdraw directive<a class="headerlink" href="#pcbdraw-directive" title="Permalink to this headline">¶</a></h2>
-<p>Here are some examples.</p>
-<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">pcbdraw</span><span class="p">::</span> UPduino_v3.0.kicad_pcb
-</pre></div>
-</div>
-<a class="reference internal image-reference" href="_images/UPduino_v3.0.kicad_pcb.svg"><img alt="_images/UPduino_v3.0.kicad_pcb.svg" src="_images/UPduino_v3.0.kicad_pcb.svg" width="100%" /></a>
-<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">pcbdraw</span><span class="p">::</span> UPduino_v3.0.kicad_pcb
-   <span class="nc">:back:</span>
-   <span class="nc">:mirror:</span>
-   <span class="nc">:placeholder:</span>
-   <span class="nc">:no-drillholes:</span>
-</pre></div>
-</div>
-<a class="reference internal image-reference" href="_images/UPduino_v3.0.kicad_pcb_no-drillholes_back_mirror.svg"><img alt="_images/UPduino_v3.0.kicad_pcb_no-drillholes_back_mirror.svg" src="_images/UPduino_v3.0.kicad_pcb_no-drillholes_back_mirror.svg" width="100%" /></a>
-<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">pcbdraw</span><span class="p">::</span> ThisFileDoesntExist.kicad_pcb
-</pre></div>
-</div>
-<div class="admonition error">
-<p class="admonition-title">Error</p>
-<p>sphinx-pcbdraw: File does not exist: ThisFileDoesntExist.kicad_pcb</p>
-</div>
-<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">pcbdraw</span><span class="p">::</span> path/to/pcb.kicad_pcb
-   <span class="nc">:style:</span> <span class="nf">path/to/style.json           # select a path/to/style.json</span>
-   # or selects a builtin style if not a proper path
-   <span class="nc">:placeholder:</span>                        <span class="nf"># place red squares in place of missing components</span>
-   <span class="nc">:remap:</span> <span class="nf">path/to/remap.json           # use path/to/remap.json to remap components</span>
-   <span class="nc">:no-drillholes:</span>                      <span class="nf"># don&#39;t make drillholes transparent</span>
-   <span class="nc">:back:</span>                               <span class="nf"># draw the back of the board</span>
-   <span class="nc">:mirror:</span>                             <span class="nf"># mirror board on x-axis</span>
-   <span class="nc">:highlight:</span> <span class="nf">comma, separated, list   # highlight these components</span>
-   <span class="nc">:filter:</span> <span class="nf">comma, separated, list      # only show these components</span>
-   <span class="nc">:hidden:</span> <span class="nf">comma, separated, list      # don&#39;t show these components</span>
-   <span class="nc">:width:</span>                              <span class="nf"># width of the resulting image, defaults to 100%</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="pcb-components-directive">
-<h2>pcb-components directive<a class="headerlink" href="#pcb-components-directive" title="Permalink to this headline">¶</a></h2>
-<p>A list of all the components on a board can be created using this directive:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">pcb</span><span class="o">-</span><span class="n">components</span><span class="p">::</span> <span class="n">UPduino_v3</span><span class="o">.</span><span class="mf">0.</span><span class="n">kicad_pcb</span>
-</pre></div>
-</div>
-<table class='pcb-components'><tr><th>Library</th><th>Component</th></tr><tr><td>Capacitor_SMD</td><td>C_0603_1608Metric</td></tr><tr><td>Connector_PinHeader_2.54mm</td><td>PinHeader_1x02_P2.54mm_Vertical</td></tr><tr><td>Fiducial</td><td>Fiducial_0.75mm_Mask1.5mm</td></tr><tr><td>Inductor_SMD</td><td>L_0603_1608Metric</td></tr><tr><td>LED_SMD</td><td>LED_0603_1608Metric</td></tr><tr><td>Package_DFN_QFN</td><td>QFN-48-1EP_7x7mm_P0.5mm_EP5.6x5.6mm</td></tr><tr><td>Package_SO</td><td>SOIC-8_5.23x5.23mm_P1.27mm</td></tr><tr><td>Resistor_SMD</td><td>R_0603_1608Metric</td></tr><tr><td>TestPoint</td><td>TestPoint_Pad_D1.0mm</td></tr><tr><td>VS.preety</td><td>LED_Cree-PLCC4_2x2mm_CW</td></tr><tr><td>vs</td><td>MountingHole_2.5mm_M3</td></tr><tr><td>vs</td><td>Oscillator_SMD_Abracon_ASDMB-4Pin_2.5x2.0mm</td></tr><tr><td>vs</td><td>PinHeader_1x24_P2.54mm_Vertical</td></tr><tr><td>vs</td><td>QFN-48-1EP_8x8mm_P0.5mm_EP6.2x6.2mm</td></tr><tr><td>vs</td><td>SOT-23-6</td></tr><tr><td>vs</td><td>ShortedJumper-2_P1.3mm_Bridged_Pad1.0x1.0mm</td></tr><tr><td>vs</td><td>SolderJumper-2_0603_Open_TrianglePad1.0x1.5mm</td></tr><tr><td>vs</td><td>Tiny4</td></tr><tr><td>vs</td><td>USB_Micro_AB_Female_0475890001</td></tr></table></div>
-<div class="section" id="todo">
-<h2>TODO<a class="headerlink" href="#todo" title="Permalink to this headline">¶</a></h2>
-<p>pcbdraw global options</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sphinx_pcbdraw_libs</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;lib/folder/one&quot;</span><span class="p">,</span> <span class="s2">&quot;lib/folder/two&quot;</span><span class="p">]</span> <span class="c1"># library folders to include for generation</span>
-<span class="n">sphinx_pcbdraw_style</span> <span class="o">=</span> <span class="s2">&quot;path/to/style.json&quot;</span> <span class="c1"># default style path or builtin</span>
-<span class="n">sphinx_pcbdraw_remap</span> <span class="o">=</span> <span class="s2">&quot;path/to/remap.json&quot;</span> <span class="c1"># default for remapping components</span>
-<span class="n">sphinx_pcbdraw_hidden</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;component1&quot;</span><span class="p">,</span> <span class="s2">&quot;component2&quot;</span><span class="p">]</span> <span class="c1"># list of components to hide from all designs</span>
-</pre></div>
-</div>
-<p>Example kicad_pcb file <cite>UPduino_v3.0.kicad_pcb</cite> from <a class="reference external" href="https://github.com/tinyvision-ai-inc/UPduino-v3.0">https://github.com/tinyvision-ai-inc/UPduino-v3.0</a>, Copyright tinyvision-ai-inc under the MIT License.</p>
-</div>
-</div>
-
-
-          </div>
-          
-        </div>
-      </div>
+  <div class="document">
+    
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="#">Python</a></h1>
+<h1 class="logo"><a href="#">sphinx-pcbdraw</a></h1>
 
 
+
+<p class="blurb">a basic Sphinx extension for creating board views from KiCAD files</p>
 
 
 
@@ -135,10 +65,103 @@
 
         </div>
       </div>
-      <div class="clearer"></div>
-    </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="sphinx-pcbdraw">
+<h1>sphinx-pcbdraw<a class="headerlink" href="#sphinx-pcbdraw" title="Permalink to this headline">¶</a></h1>
+<p>This is a basic Sphinx extension for creating board views from KiCAD <code class="docutils literal notranslate"><span class="pre">.kicad_pcb</span></code> files and embedding them into a Sphinx document. Utilizes <a class="reference external" href="https://github.com/yaqwsx/PcbDraw">PcbDraw</a> created by yaqwsx. Requires <a class="reference external" href="https://www.kicad.org/">KiCAD</a> and <a class="reference external" href="https://github.com/yaqwsx/KiKit">KiKit</a>.</p>
+<div class="section" id="pcbdraw-directive">
+<h2>pcbdraw directive<a class="headerlink" href="#pcbdraw-directive" title="Permalink to this headline">¶</a></h2>
+<p>Here are some examples.</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">pcbdraw</span><span class="p">::</span> UPduino_v3.0.kicad_pcb
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/UPduino_v3.0.kicad_pcb.svg"><img alt="_images/UPduino_v3.0.kicad_pcb.svg" src="_images/UPduino_v3.0.kicad_pcb.svg" width="100%" /></a>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">pcbdraw</span><span class="p">::</span> UPduino_v3.0.kicad_pcb
+   <span class="nc">:back:</span>
+   <span class="nc">:mirror:</span>
+   <span class="nc">:placeholder:</span>
+   <span class="nc">:no-drillholes:</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/UPduino_v3.0.kicad_pcb_placeholder_no-drillholes_back_mirror.svg"><img alt="_images/UPduino_v3.0.kicad_pcb_placeholder_no-drillholes_back_mirror.svg" src="_images/UPduino_v3.0.kicad_pcb_placeholder_no-drillholes_back_mirror.svg" width="100%" /></a>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">pcbdraw</span><span class="p">::</span> NINA-W102_minimal_breakout.kicad_pcb
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/NINA-W102_minimal_breakout.kicad_pcb.svg"><img alt="_images/NINA-W102_minimal_breakout.kicad_pcb.svg" src="_images/NINA-W102_minimal_breakout.kicad_pcb.svg" width="100%" /></a>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">pcbdraw</span><span class="p">::</span> ThisFileDoesntExist.kicad_pcb
+</pre></div>
+</div>
+<div class="admonition error">
+<p class="admonition-title">Error</p>
+<p>sphinx-pcbdraw: File does not exist: ThisFileDoesntExist.kicad_pcb</p>
+</div>
+<div class="section" id="options">
+<h3>options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">pcbdraw</span><span class="p">::</span> path/to/pcb.kicad_pcb
+   <span class="nc">:style:</span> <span class="nf">path/to/style.json           # select a path/to/style.json</span>
+   # or selects a builtin style if not a proper path
+   <span class="nc">:placeholder:</span>                        <span class="nf"># place red squares in place of missing components</span>
+   <span class="nc">:remap:</span> <span class="nf">path/to/remap.json           # use path/to/remap.json to remap components</span>
+   <span class="nc">:no-drillholes:</span>                      <span class="nf"># don&#39;t make drillholes transparent</span>
+   <span class="nc">:back:</span>                               <span class="nf"># draw the back of the board</span>
+   <span class="nc">:mirror:</span>                             <span class="nf"># mirror board on x-axis</span>
+   <span class="nc">:highlight:</span> <span class="nf">comma, separated, list   # highlight these components</span>
+   <span class="nc">:filter:</span> <span class="nf">comma, separated, list      # only show these components</span>
+   <span class="nc">:hidden:</span> <span class="nf">comma, separated, list      # don&#39;t show these components</span>
+   <span class="nc">:width:</span>                              <span class="nf"># width of the resulting image, defaults to 100%</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="pcb-components-directive">
+<h2>pcb-components directive<a class="headerlink" href="#pcb-components-directive" title="Permalink to this headline">¶</a></h2>
+<p>A list of all the components on a board can be created using this directive. It will default to only showing the components on the front side:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">pcb-components</span><span class="p">::</span> UPduino_v3.0.kicad_pcb
+</pre></div>
+</div>
+<table class='docutils'><tr><th>Library</th><th>Component</th></tr><tr><td>Capacitor_SMD</td><td>C_0603_1608Metric</td></tr><tr><td>Connector_PinHeader_2.54mm</td><td>PinHeader_1x02_P2.54mm_Vertical</td></tr><tr><td>Fiducial</td><td>Fiducial_0.75mm_Mask1.5mm</td></tr><tr><td>Inductor_SMD</td><td>L_0603_1608Metric</td></tr><tr><td>LED_SMD</td><td>LED_0603_1608Metric</td></tr><tr><td>Package_DFN_QFN</td><td>QFN-48-1EP_7x7mm_P0.5mm_EP5.6x5.6mm</td></tr><tr><td>Package_SO</td><td>SOIC-8_5.23x5.23mm_P1.27mm</td></tr><tr><td>Resistor_SMD</td><td>R_0603_1608Metric</td></tr><tr><td>TestPoint</td><td>TestPoint_Pad_D1.0mm</td></tr><tr><td>VS.preety</td><td>LED_Cree-PLCC4_2x2mm_CW</td></tr><tr><td>vs</td><td>MountingHole_2.5mm_M3</td></tr><tr><td>vs</td><td>Oscillator_SMD_Abracon_ASDMB-4Pin_2.5x2.0mm</td></tr><tr><td>vs</td><td>PinHeader_1x24_P2.54mm_Vertical</td></tr><tr><td>vs</td><td>QFN-48-1EP_8x8mm_P0.5mm_EP6.2x6.2mm</td></tr><tr><td>vs</td><td>SOT-23-6</td></tr><tr><td>vs</td><td>ShortedJumper-2_P1.3mm_Bridged_Pad1.0x1.0mm</td></tr><tr><td>vs</td><td>SolderJumper-2_0603_Open_TrianglePad1.0x1.5mm</td></tr><tr><td>vs</td><td>Tiny4</td></tr><tr><td>vs</td><td>USB_Micro_AB_Female_0475890001</td></tr></table><p>Components from only the back side can be specified:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">pcb-components</span><span class="p">::</span> UPduino_v3.0.kicad_pcb
+   <span class="nc">:side:</span> <span class="nf">back</span>
+</pre></div>
+</div>
+<table class='docutils'><tr><th>Library</th><th>Component</th></tr><tr><td>Capacitor_SMD</td><td>C_0603_1608Metric</td></tr><tr><td>Diode_SMD</td><td>D_SOD-523</td></tr><tr><td>Fiducial</td><td>Fiducial_0.75mm_Mask1.5mm</td></tr><tr><td>Inductor_SMD</td><td>L_0603_1608Metric</td></tr><tr><td>Package_SO</td><td>VSSOP-8_2.3x2mm_P0.5mm</td></tr><tr><td>Resistor_SMD</td><td>R_0603_1608Metric</td></tr><tr><td>Symbol</td><td>WEEE-Logo_4.2x6mm_SilkScreen</td></tr><tr><td>TestPoint</td><td>TestPoint_Pad_D1.0mm</td></tr><tr><td>vs</td><td>SOT-23-5</td></tr><tr><td>vs</td><td>ShortedJumper-2_P1.3mm_Bridged_Pad1.0x1.0mm</td></tr><tr><td>vs</td><td>SolderJumper-2_0603_Open_TrianglePad1.0x1.5mm</td></tr></table><p>Components from both sides can be specificed.:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">pcb-components</span><span class="p">::</span> NINA-W102_minimal_breakout.kicad_pcb
+   <span class="nc">:side:</span> <span class="nf">both</span>
+</pre></div>
+</div>
+<table class='docutils'><tr><th>Library</th><th>Component</th></tr><tr><td></td><td>6_PIN_SERIAL_TARGET_SIDE_W_SILK</td></tr><tr><td>Aesthetics</td><td>OSHW-LOGO-MINI</td></tr><tr><td>Capacitors_SMD</td><td>C_1206_HandSoldering</td></tr><tr><td>LEDs</td><td>LED_1206_HandSoldering</td></tr><tr><td>Resistors_SMD</td><td>R_1206_HandSoldering</td></tr><tr><td>lib</td><td>1X15_LOCK</td></tr><tr><td>lib</td><td>BREADBOARD_SPACING_80mm</td></tr><tr><td>lib</td><td>DuckTapeApproved-MIT</td></tr><tr><td>lib</td><td>GDG-logo-mono-withouttext-h5.6</td></tr><tr><td>lib</td><td>MakeZurich-15x11-silk</td></tr><tr><td>lib</td><td>NINA-W102</td></tr><tr><td>lib</td><td>SMT-JUMPER_2_NC_TRACE_SILK</td></tr><tr><td>switchessilicone</td><td>TACTILE_SWITCH_SMD_6.0X6.0MM</td></tr></table></div>
+<div class="section" id="todo">
+<h2>TODO<a class="headerlink" href="#todo" title="Permalink to this headline">¶</a></h2>
+<p>pcbdraw global options</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sphinx_pcbdraw_libs</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;lib/folder/one&quot;</span><span class="p">,</span> <span class="s2">&quot;lib/folder/two&quot;</span><span class="p">]</span> <span class="c1"># library folders to include for generation</span>
+<span class="n">sphinx_pcbdraw_style</span> <span class="o">=</span> <span class="s2">&quot;path/to/style.json&quot;</span> <span class="c1"># default style path or builtin</span>
+<span class="n">sphinx_pcbdraw_remap</span> <span class="o">=</span> <span class="s2">&quot;path/to/remap.json&quot;</span> <span class="c1"># default for remapping components</span>
+<span class="n">sphinx_pcbdraw_hidden</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;component1&quot;</span><span class="p">,</span> <span class="s2">&quot;component2&quot;</span><span class="p">]</span> <span class="c1"># list of components to hide from all designs</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="license">
+<h2>License<a class="headerlink" href="#license" title="Permalink to this headline">¶</a></h2>
+<p>sphinx-pcbdraw is under the MIT license. Source code is avaiable at <a class="reference external" href="https://github.com/nobodywasishere/sphinx-pcbdraw">https://github.com/nobodywasishere/sphinx-pcbdraw</a>.</p>
+<p>Example kicad_pcb file <cite>UPduino_v3.0.kicad_pcb</cite> from <a class="reference external" href="https://github.com/tinyvision-ai-inc/UPduino-v3.0">https://github.com/tinyvision-ai-inc/UPduino-v3.0</a>, Copyright tinyvision-ai-inc under the MIT License.</p>
+<p>Example kicad_pcb file <cite>NINA-W102_minimal_breakout.kicad_pcb</cite> from <a class="reference external" href="https://github.com/rac2030/breakout-boards">https://github.com/rac2030/breakout-boards</a>, Copyright Michel Racic under the MIT License.</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
     <div class="footer">
-      &copy;.
+      &copy;2021 Michael Riegert.
       
       |
       Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.4</a>
