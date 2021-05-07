@@ -33,6 +33,8 @@
   <div class="section" id="sphinx-pcbdraw">
 <h1>sphinx-pcbdraw<a class="headerlink" href="#sphinx-pcbdraw" title="Permalink to this headline">¶</a></h1>
 <p>This is a basic Sphinx extension for creating board views from KiCAD <code class="docutils literal notranslate"><span class="pre">.kicad_pcb</span></code> files and embedding them into a Sphinx document. Utilizes <a class="reference external" href="https://github.com/yaqwsx/PcbDraw">PcbDraw</a> created by yaqwsx. Requires <a class="reference external" href="https://www.kicad.org/">KiCAD</a> and <a class="reference external" href="https://github.com/yaqwsx/KiKit">KiKit</a>.</p>
+<div class="section" id="pcbdraw-directive">
+<h2>pcbdraw directive<a class="headerlink" href="#pcbdraw-directive" title="Permalink to this headline">¶</a></h2>
 <p>Here are some examples.</p>
 <div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">pcbdraw</span><span class="p">::</span> UPduino_v3.0.kicad_pcb
 </pre></div>
@@ -40,14 +42,8 @@
 <a class="reference internal image-reference" href="_images/UPduino_v3.0.kicad_pcb.svg"><img alt="_images/UPduino_v3.0.kicad_pcb.svg" src="_images/UPduino_v3.0.kicad_pcb.svg" width="100%" /></a>
 <div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">pcbdraw</span><span class="p">::</span> UPduino_v3.0.kicad_pcb
    <span class="nc">:back:</span>
-   <span class="nc">:placeholder:</span>
-   <span class="nc">:width:</span> <span class="nf">75%</span>
-</pre></div>
-</div>
-<a class="reference internal image-reference" href="_images/UPduino_v3.0.kicad_pcb_placeholder_back.svg"><img alt="_images/UPduino_v3.0.kicad_pcb_placeholder_back.svg" src="_images/UPduino_v3.0.kicad_pcb_placeholder_back.svg" width="75%" /></a>
-<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">pcbdraw</span><span class="p">::</span> UPduino_v3.0.kicad_pcb
-   <span class="nc">:back:</span>
    <span class="nc">:mirror:</span>
+   <span class="nc">:placeholder:</span>
    <span class="nc">:no-drillholes:</span>
 </pre></div>
 </div>
@@ -59,9 +55,6 @@
 <p class="admonition-title">Error</p>
 <p>sphinx-pcbdraw: File does not exist: ThisFileDoesntExist.kicad_pcb</p>
 </div>
-<p>Example kicad_pcb file <cite>UPduino_v3.0.kicad_pcb</cite> from <a class="reference external" href="https://github.com/tinyvision-ai-inc/UPduino-v3.0">https://github.com/tinyvision-ai-inc/UPduino-v3.0</a>, Copyright tinyvision-ai-inc under the MIT License.</p>
-<div class="section" id="pcbdraw-directive-options">
-<h2>pcbdraw directive options<a class="headerlink" href="#pcbdraw-directive-options" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">pcbdraw</span><span class="p">::</span> path/to/pcb.kicad_pcb
    <span class="nc">:style:</span> <span class="nf">path/to/style.json           # select a path/to/style.json</span>
    # or selects a builtin style if not a proper path
@@ -73,9 +66,17 @@
    <span class="nc">:highlight:</span> <span class="nf">comma, separated, list   # highlight these components</span>
    <span class="nc">:filter:</span> <span class="nf">comma, separated, list      # only show these components</span>
    <span class="nc">:hidden:</span> <span class="nf">comma, separated, list      # don&#39;t show these components</span>
+   <span class="nc">:width:</span>                              <span class="nf"># width of the resulting image, defaults to 100%</span>
 </pre></div>
 </div>
 </div>
+<div class="section" id="pcb-components-directive">
+<h2>pcb-components directive<a class="headerlink" href="#pcb-components-directive" title="Permalink to this headline">¶</a></h2>
+<p>A list of all the components on a board can be created using this directive:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">pcb</span><span class="o">-</span><span class="n">components</span><span class="p">::</span> <span class="n">UPduino_v3</span><span class="o">.</span><span class="mf">0.</span><span class="n">kicad_pcb</span>
+</pre></div>
+</div>
+<table class='pcb-components'><tr><th>Library</th><th>Component</th></tr><tr><td>Capacitor_SMD</td><td>C_0603_1608Metric</td></tr><tr><td>Connector_PinHeader_2.54mm</td><td>PinHeader_1x02_P2.54mm_Vertical</td></tr><tr><td>Fiducial</td><td>Fiducial_0.75mm_Mask1.5mm</td></tr><tr><td>Inductor_SMD</td><td>L_0603_1608Metric</td></tr><tr><td>LED_SMD</td><td>LED_0603_1608Metric</td></tr><tr><td>Package_DFN_QFN</td><td>QFN-48-1EP_7x7mm_P0.5mm_EP5.6x5.6mm</td></tr><tr><td>Package_SO</td><td>SOIC-8_5.23x5.23mm_P1.27mm</td></tr><tr><td>Resistor_SMD</td><td>R_0603_1608Metric</td></tr><tr><td>TestPoint</td><td>TestPoint_Pad_D1.0mm</td></tr><tr><td>VS.preety</td><td>LED_Cree-PLCC4_2x2mm_CW</td></tr><tr><td>vs</td><td>MountingHole_2.5mm_M3</td></tr><tr><td>vs</td><td>Oscillator_SMD_Abracon_ASDMB-4Pin_2.5x2.0mm</td></tr><tr><td>vs</td><td>PinHeader_1x24_P2.54mm_Vertical</td></tr><tr><td>vs</td><td>QFN-48-1EP_8x8mm_P0.5mm_EP6.2x6.2mm</td></tr><tr><td>vs</td><td>SOT-23-6</td></tr><tr><td>vs</td><td>ShortedJumper-2_P1.3mm_Bridged_Pad1.0x1.0mm</td></tr><tr><td>vs</td><td>SolderJumper-2_0603_Open_TrianglePad1.0x1.5mm</td></tr><tr><td>vs</td><td>Tiny4</td></tr><tr><td>vs</td><td>USB_Micro_AB_Female_0475890001</td></tr></table></div>
 <div class="section" id="todo">
 <h2>TODO<a class="headerlink" href="#todo" title="Permalink to this headline">¶</a></h2>
 <p>pcbdraw global options</p>
@@ -85,6 +86,7 @@
 <span class="n">sphinx_pcbdraw_hidden</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;component1&quot;</span><span class="p">,</span> <span class="s2">&quot;component2&quot;</span><span class="p">]</span> <span class="c1"># list of components to hide from all designs</span>
 </pre></div>
 </div>
+<p>Example kicad_pcb file <cite>UPduino_v3.0.kicad_pcb</cite> from <a class="reference external" href="https://github.com/tinyvision-ai-inc/UPduino-v3.0">https://github.com/tinyvision-ai-inc/UPduino-v3.0</a>, Copyright tinyvision-ai-inc under the MIT License.</p>
 </div>
 </div>
 

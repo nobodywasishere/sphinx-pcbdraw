@@ -7,6 +7,10 @@ This is a basic Sphinx extension for creating board views from KiCAD ``.kicad_pc
 .. _KiCAD: https://www.kicad.org/
 .. _KiKit: https://github.com/yaqwsx/KiKit
 
+
+pcbdraw directive
++++++++++++++++++
+
 Here are some examples.
 
 .. code-block:: rst
@@ -19,19 +23,8 @@ Here are some examples.
 
    .. pcbdraw:: UPduino_v3.0.kicad_pcb
       :back:
-      :placeholder:
-      :width: 75%
-
-.. pcbdraw:: UPduino_v3.0.kicad_pcb
-   :back:
-   :placeholder:
-   :width: 75%
-
-.. code-block:: rst
-
-   .. pcbdraw:: UPduino_v3.0.kicad_pcb
-      :back:
       :mirror:
+      :placeholder:
       :no-drillholes:
 
 .. pcbdraw:: UPduino_v3.0.kicad_pcb
@@ -44,11 +37,6 @@ Here are some examples.
    .. pcbdraw:: ThisFileDoesntExist.kicad_pcb
 
 .. pcbdraw:: ThisFileDoesntExist.kicad_pcb
-
-Example kicad_pcb file `UPduino_v3.0.kicad_pcb` from https://github.com/tinyvision-ai-inc/UPduino-v3.0, Copyright tinyvision-ai-inc under the MIT License.
-
-pcbdraw directive options
-+++++++++++++++++++++++++
 
 .. code-block:: rst
 
@@ -63,6 +51,17 @@ pcbdraw directive options
       :highlight: comma, separated, list   # highlight these components
       :filter: comma, separated, list      # only show these components
       :hidden: comma, separated, list      # don't show these components
+      :width:                              # width of the resulting image, defaults to 100%
+
+
+pcb-components directive
+++++++++++++++++++++++++
+
+A list of all the components on a board can be created using this directive::
+
+   .. pcb-components:: UPduino_v3.0.kicad_pcb
+      
+.. pcb-components:: UPduino_v3.0.kicad_pcb
 
 TODO
 ++++
@@ -75,3 +74,6 @@ pcbdraw global options
     sphinx_pcbdraw_style = "path/to/style.json" # default style path or builtin
     sphinx_pcbdraw_remap = "path/to/remap.json" # default for remapping components
     sphinx_pcbdraw_hidden = ["component1", "component2"] # list of components to hide from all designs
+
+
+Example kicad_pcb file `UPduino_v3.0.kicad_pcb` from https://github.com/tinyvision-ai-inc/UPduino-v3.0, Copyright tinyvision-ai-inc under the MIT License.
