@@ -1,2 +1,3 @@
 pcbdraw
 sphinx
+git+https://github.com/yaqwsx/KiKit
