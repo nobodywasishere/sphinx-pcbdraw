@@ -3,9 +3,13 @@ from docutils.parsers.rst import Directive
 
 from sphinx.util import logging
 
-import os, sys, subprocess
+import os, sys, subprocess, re
 
 logger = logging.getLogger(__name__)
+
+class pcb_components(nodes.General, nodes.Inline, nodes.Element):
+    '''Base class for pcb_components node'''
+    pass
 
 class PCBDraw(Directive):
     has_content = True
@@ -26,6 +30,14 @@ class PCBDraw(Directive):
         'filter': str,
         'width': str
     }
+    
+    # global_variable_options = {
+    #     "sphinx_pcbdraw_output_format": ["svg", "png"],
+    #     "sphinx_pcbdraw_libs": ["default"],
+    #     "sphinx_pcbdraw_style": ["default"],
+    #     "sphinx_pcbdraw_remap": ["default"]
+    # }
+
     def run(self):
         try:
             import pcbnew
@@ -101,10 +113,72 @@ class PCBDraw(Directive):
 
         return [image_node]
 
-        return [paragraph_node]
+class PCBComponents(Directive):
+    has_content = True
+
+    comps = ""
+
+    def run(self):
+        try:
+            import pcbnew
+        except Exception as e:
+            logger.error(e)
+            return [nodes.error(
+                None,
+                nodes.paragraph(text=("sphinx-pcbdraw: "
+                    + str(e))),
+            )]
+                
+        pcb_file = self.content[0]
+        if os.path.exists(pcb_file):
+            logger.info("File exists")
+        else:
+            logger.error("File does not exist")
+            return [nodes.error(
+                None,
+                nodes.paragraph(text=("sphinx-pcbdraw: "
+                    "File does not exist: " + pcb_file)),
+            )]
+
+        comps = str(subprocess.check_output("pcbdraw {infile} out.svg --list-components".format(infile=pcb_file), shell=True))
+        # comps = re.sub(" at .* package ", "", comps)
+        comps = comps.split('\\n')
+        for i in range(len(comps)):
+            comps[i] = re.sub('^.* package ', '', comps[i])
+            comps[i] = re.sub(' at \[.*', '', comps[i])
+            if ":" not in comps[i]:
+                comps[i] = ""
+        comps = list(set(comps))
+        comps.sort()
+
+        comps = ['Library:Component'] + comps
+
+        node = pcb_components()
+        node['comps'] = comps
+        self.add_name(node)
+        return [node]
+
+def visit_pcb_components_node(self, node):
+    table_str = "<table class='pcb-components'>"
+    for t in range(len(node['comps'])):
+        if ":" not in node['comps'][t]:
+            pass
+        elif t == 0:
+            table_str += "<tr><th>{}</th><th>{}</th></tr>".format(node['comps'][t].split(":")[0], node['comps'][t].split(":")[1])
+        else:
+            table_str += "<tr><td>{}</td><td>{}</td></tr>".format(node['comps'][t].split(":")[0], node['comps'][t].split(":")[1])
+    table_str += "</table>"
+    self.body.append(table_str)
+
+def depart_pcb_components_node(self, node):
+    # print("self:", str(self))
+    pass
 
 def setup(app):
+    app.add_node(pcb_components,
+        html=(visit_pcb_components_node, depart_pcb_components_node))
     app.add_directive("pcbdraw", PCBDraw)
+    app.add_directive("pcb-components", PCBComponents)
     return {
         'version': '0.1',
         'parallel_read_safe': True,
