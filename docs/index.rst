@@ -30,6 +30,7 @@ Here are some examples.
 .. pcbdraw:: UPduino_v3.0.kicad_pcb
    :back:
    :mirror:
+   :placeholder:
    :no-drillholes:
 
 .. code-block:: rst
@@ -37,6 +38,9 @@ Here are some examples.
    .. pcbdraw:: ThisFileDoesntExist.kicad_pcb
 
 .. pcbdraw:: ThisFileDoesntExist.kicad_pcb
+
+options
+-------
 
 .. code-block:: rst
 
@@ -57,11 +61,33 @@ Here are some examples.
 pcb-components directive
 ++++++++++++++++++++++++
 
-A list of all the components on a board can be created using this directive::
+A list of all the components on a board can be created using this directive. It will default to only showing the components on the front side:
+
+.. code-block:: rst
 
    .. pcb-components:: UPduino_v3.0.kicad_pcb
       
 .. pcb-components:: UPduino_v3.0.kicad_pcb
+
+Components from only the back side can be specified:
+
+.. code-block:: rst
+
+   .. pcb-components:: UPduino_v3.0.kicad_pcb
+      :side: back
+      
+.. pcb-components:: UPduino_v3.0.kicad_pcb
+   :side: back
+
+Components from both sides can be specificed.:
+
+.. code-block:: rst
+
+   .. pcb-components:: UPduino_v3.0.kicad_pcb
+      :side: both
+      
+.. pcb-components:: UPduino_v3.0.kicad_pcb
+   :side: both
 
 TODO
 ++++

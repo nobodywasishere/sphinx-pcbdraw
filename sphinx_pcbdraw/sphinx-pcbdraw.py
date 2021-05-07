@@ -51,9 +51,9 @@ class PCBDraw(Directive):
 
         pcb_file = self.content[0]
         if os.path.exists(pcb_file):
-            logger.info("File exists")
+            logger.info("File exists: {}".format(pcb_file))
         else:
-            logger.error("File does not exist")
+            logger.error("File does not exist: {}".format(pcb_file))
             return [nodes.error(
                 None,
                 nodes.paragraph(text=("sphinx-pcbdraw: "
@@ -116,6 +116,10 @@ class PCBDraw(Directive):
 class PCBComponents(Directive):
     has_content = True
 
+    option_spec = {
+        'side': str,
+    }
+
     comps = ""
 
     def run(self):
@@ -131,16 +135,28 @@ class PCBComponents(Directive):
                 
         pcb_file = self.content[0]
         if os.path.exists(pcb_file):
-            logger.info("File exists")
+            logger.info("File exists: {}".format(pcb_file))
         else:
-            logger.error("File does not exist")
+            logger.error("File does not exist: {}".format(pcb_file))
             return [nodes.error(
                 None,
                 nodes.paragraph(text=("sphinx-pcbdraw: "
                     "File does not exist: " + pcb_file)),
             )]
 
-        comps = str(subprocess.check_output("pcbdraw {infile} out.svg --list-components".format(infile=pcb_file), shell=True))
+        if 'side' in self.options:
+            if self.options['side'] == 'front':
+                comps = str(subprocess.check_output("pcbdraw {infile} out.svg --list-components".format(infile=pcb_file), shell=True))
+            elif self.options['side'] == 'back':
+                comps = str(subprocess.check_output("pcbdraw {infile} out.svg --list-components --back".format(infile=pcb_file), shell=True))
+            elif self.options['side'] == 'both':
+                comps  = str(subprocess.check_output("pcbdraw {infile} out.svg --list-components".format(infile=pcb_file), shell=True))
+                comps += str(subprocess.check_output("pcbdraw {infile} out.svg --list-components --back".format(infile=pcb_file), shell=True))
+            else:
+                raise Exception("Unknown option for :side:: {}".format(self.options['side']))
+        else:
+            comps = str(subprocess.check_output("pcbdraw {infile} out.svg --list-components".format(infile=pcb_file), shell=True))
+            
         # comps = re.sub(" at .* package ", "", comps)
         comps = comps.split('\\n')
         for i in range(len(comps)):
@@ -155,18 +171,24 @@ class PCBComponents(Directive):
 
         node = pcb_components()
         node['comps'] = comps
+        node['side'] = self.options['side'] if 'side' in self.options else ''
         self.add_name(node)
         return [node]
 
 def visit_pcb_components_node(self, node):
-    table_str = "<table class='pcb-components'>"
+    table_str = "<table class='docutils'>"
     for t in range(len(node['comps'])):
         if ":" not in node['comps'][t]:
             pass
-        elif t == 0:
-            table_str += "<tr><th>{}</th><th>{}</th></tr>".format(node['comps'][t].split(":")[0], node['comps'][t].split(":")[1])
         else:
-            table_str += "<tr><td>{}</td><td>{}</td></tr>".format(node['comps'][t].split(":")[0], node['comps'][t].split(":")[1])
+            table_str += "<tr>"
+            for q in node['comps'][t].split(":"):
+                if t == 0:
+                    table_str += "<th>{}</th>".format(q)
+                else:
+                    table_str += "<td>{}</td>".format(q)
+            table_str += "</tr>"
+            
     table_str += "</table>"
     self.body.append(table_str)
 

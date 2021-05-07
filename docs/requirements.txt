@@ -1,3 +1,4 @@
 pcbdraw
 sphinx
 git+https://github.com/yaqwsx/KiKit
+sphinx-rtd-theme
