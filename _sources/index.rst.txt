@@ -7,13 +7,39 @@ This is a basic Sphinx extension for creating board views from KiCAD ``.kicad_pc
 .. _KiCAD: https://www.kicad.org/
 .. _KiKit: https://github.com/yaqwsx/KiKit
 
-An example that works::
+Here are some examples.
+
+.. code-block:: rst
 
    .. pcbdraw:: UPduino_v3.0.kicad_pcb
 
 .. pcbdraw:: UPduino_v3.0.kicad_pcb
 
-An example that doesn't work::
+.. code-block:: rst
+
+   .. pcbdraw:: UPduino_v3.0.kicad_pcb
+      :back:
+      :placeholder:
+      :width: 75%
+
+.. pcbdraw:: UPduino_v3.0.kicad_pcb
+   :back:
+   :placeholder:
+   :width: 75%
+
+.. code-block:: rst
+
+   .. pcbdraw:: UPduino_v3.0.kicad_pcb
+      :back:
+      :mirror:
+      :no-drillholes:
+
+.. pcbdraw:: UPduino_v3.0.kicad_pcb
+   :back:
+   :mirror:
+   :no-drillholes:
+
+.. code-block:: rst
 
    .. pcbdraw:: ThisFileDoesntExist.kicad_pcb
 
@@ -21,24 +47,25 @@ An example that doesn't work::
 
 Example kicad_pcb file `UPduino_v3.0.kicad_pcb` from https://github.com/tinyvision-ai-inc/UPduino-v3.0, Copyright tinyvision-ai-inc under the MIT License.
 
-TODO
-++++
-
 pcbdraw directive options
++++++++++++++++++++++++++
 
 .. code-block:: rst
 
-    .. pcbdraw:: path/to/pcb.kicad_pcb
-       :style: path/to/style.json           # select a path/to/style.json
-                                            # or selects a builtin style if not a proper path
-       :placeholder:                        # place red squares in place of missing components
-       :remap: path/to/remap.json           # use path/to/remap.json to remap components
-       :no-drillholes:                      # don't make drillholes transparent
-       :back:                               # draw the back of the board
-       :mirror:                             # mirror board on x-axis
-       :highlight: comma, separated, list   # highlight these components
-       :filter: comma, separated, list      # only show these components
-       :hidden: comma, separated, list      # don't show these components
+   .. pcbdraw:: path/to/pcb.kicad_pcb
+      :style: path/to/style.json           # select a path/to/style.json
+      # or selects a builtin style if not a proper path
+      :placeholder:                        # place red squares in place of missing components
+      :remap: path/to/remap.json           # use path/to/remap.json to remap components
+      :no-drillholes:                      # don't make drillholes transparent
+      :back:                               # draw the back of the board
+      :mirror:                             # mirror board on x-axis
+      :highlight: comma, separated, list   # highlight these components
+      :filter: comma, separated, list      # only show these components
+      :hidden: comma, separated, list      # don't show these components
+
+TODO
+++++
 
 pcbdraw global options
 

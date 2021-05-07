@@ -33,12 +33,26 @@
   <div class="section" id="sphinx-pcbdraw">
 <h1>sphinx-pcbdraw<a class="headerlink" href="#sphinx-pcbdraw" title="Permalink to this headline">¶</a></h1>
 <p>This is a basic Sphinx extension for creating board views from KiCAD <code class="docutils literal notranslate"><span class="pre">.kicad_pcb</span></code> files and embedding them into a Sphinx document. Utilizes <a class="reference external" href="https://github.com/yaqwsx/PcbDraw">PcbDraw</a> created by yaqwsx. Requires <a class="reference external" href="https://www.kicad.org/">KiCAD</a> and <a class="reference external" href="https://github.com/yaqwsx/KiKit">KiKit</a>.</p>
-<p>An example that works:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">pcbdraw</span><span class="p">::</span> <span class="n">UPduino_v3</span><span class="o">.</span><span class="mf">0.</span><span class="n">kicad_pcb</span>
+<p>Here are some examples.</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">pcbdraw</span><span class="p">::</span> UPduino_v3.0.kicad_pcb
 </pre></div>
 </div>
-<img alt="_images/UPduino_v3.0.kicad_pcb.svg" src="_images/UPduino_v3.0.kicad_pcb.svg" /><p>An example that doesn’t work:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">pcbdraw</span><span class="p">::</span> <span class="n">ThisFileDoesntExist</span><span class="o">.</span><span class="n">kicad_pcb</span>
+<a class="reference internal image-reference" href="_images/UPduino_v3.0.kicad_pcb.svg"><img alt="_images/UPduino_v3.0.kicad_pcb.svg" src="_images/UPduino_v3.0.kicad_pcb.svg" width="100%" /></a>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">pcbdraw</span><span class="p">::</span> UPduino_v3.0.kicad_pcb
+   <span class="nc">:back:</span>
+   <span class="nc">:placeholder:</span>
+   <span class="nc">:width:</span> <span class="nf">75%</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/UPduino_v3.0.kicad_pcb_placeholder_back.svg"><img alt="_images/UPduino_v3.0.kicad_pcb_placeholder_back.svg" src="_images/UPduino_v3.0.kicad_pcb_placeholder_back.svg" width="75%" /></a>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">pcbdraw</span><span class="p">::</span> UPduino_v3.0.kicad_pcb
+   <span class="nc">:back:</span>
+   <span class="nc">:mirror:</span>
+   <span class="nc">:no-drillholes:</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/UPduino_v3.0.kicad_pcb_no-drillholes_back_mirror.svg"><img alt="_images/UPduino_v3.0.kicad_pcb_no-drillholes_back_mirror.svg" src="_images/UPduino_v3.0.kicad_pcb_no-drillholes_back_mirror.svg" width="100%" /></a>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">pcbdraw</span><span class="p">::</span> ThisFileDoesntExist.kicad_pcb
 </pre></div>
 </div>
 <div class="admonition error">
@@ -46,12 +60,11 @@
 <p>sphinx-pcbdraw: File does not exist: ThisFileDoesntExist.kicad_pcb</p>
 </div>
 <p>Example kicad_pcb file <cite>UPduino_v3.0.kicad_pcb</cite> from <a class="reference external" href="https://github.com/tinyvision-ai-inc/UPduino-v3.0">https://github.com/tinyvision-ai-inc/UPduino-v3.0</a>, Copyright tinyvision-ai-inc under the MIT License.</p>
-<div class="section" id="todo">
-<h2>TODO<a class="headerlink" href="#todo" title="Permalink to this headline">¶</a></h2>
-<p>pcbdraw directive options</p>
+<div class="section" id="pcbdraw-directive-options">
+<h2>pcbdraw directive options<a class="headerlink" href="#pcbdraw-directive-options" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">pcbdraw</span><span class="p">::</span> path/to/pcb.kicad_pcb
    <span class="nc">:style:</span> <span class="nf">path/to/style.json           # select a path/to/style.json</span>
-                                        # or selects a builtin style if not a proper path
+   # or selects a builtin style if not a proper path
    <span class="nc">:placeholder:</span>                        <span class="nf"># place red squares in place of missing components</span>
    <span class="nc">:remap:</span> <span class="nf">path/to/remap.json           # use path/to/remap.json to remap components</span>
    <span class="nc">:no-drillholes:</span>                      <span class="nf"># don&#39;t make drillholes transparent</span>
@@ -62,6 +75,9 @@
    <span class="nc">:hidden:</span> <span class="nf">comma, separated, list      # don&#39;t show these components</span>
 </pre></div>
 </div>
+</div>
+<div class="section" id="todo">
+<h2>TODO<a class="headerlink" href="#todo" title="Permalink to this headline">¶</a></h2>
 <p>pcbdraw global options</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sphinx_pcbdraw_libs</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;lib/folder/one&quot;</span><span class="p">,</span> <span class="s2">&quot;lib/folder/two&quot;</span><span class="p">]</span> <span class="c1"># library folders to include for generation</span>
 <span class="n">sphinx_pcbdraw_style</span> <span class="o">=</span> <span class="s2">&quot;path/to/style.json&quot;</span> <span class="c1"># default style path or builtin</span>
