@@ -23,12 +23,12 @@ jobs:
             python3-pip python3-setuptools make
         sudo pip3 install \
             "Pcbdraw ~= 0.6" \
-            "numpy ~= 1.20" \
-            "shapely ~= 1.7" \
-            "click ~= 7.1" \
-            "markdown2 ~= 2.4" \
-            "pybars3 ~= 0.9" \
-            "solidpython ~= 1.1" \
+            # "numpy ~= 1.20" \
+            # "shapely ~= 1.7" \
+            # "click ~= 7.1" \
+            # "markdown2 ~= 2.4" \
+            # "pybars3 ~= 0.9" \
+            # "solidpython ~= 1.1" \
             sphinx
         mkdir -p ~/.local/share/pcbdraw/footprints/
         git clone https://github.com/yaqwsx/PcbDraw-Lib/
