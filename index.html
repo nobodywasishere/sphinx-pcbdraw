@@ -4,11 +4,12 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>sphinx-pcbdraw &#8212; sphinx-pcbdraw  documentation</title>
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
@@ -71,10 +72,10 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="sphinx-pcbdraw">
+  <section id="sphinx-pcbdraw">
 <h1>sphinx-pcbdraw<a class="headerlink" href="#sphinx-pcbdraw" title="Permalink to this headline">¶</a></h1>
 <p>This is a basic Sphinx extension for creating board views from KiCAD <code class="docutils literal notranslate"><span class="pre">.kicad_pcb</span></code> files and embedding them into a Sphinx document. Utilizes <a class="reference external" href="https://github.com/yaqwsx/PcbDraw">PcbDraw</a> created by yaqwsx. Requires <a class="reference external" href="https://www.kicad.org/">KiCAD</a> and <a class="reference external" href="https://github.com/yaqwsx/KiKit">KiKit</a>.</p>
-<div class="section" id="pcbdraw-directive">
+<section id="pcbdraw-directive">
 <h2>pcbdraw directive<a class="headerlink" href="#pcbdraw-directive" title="Permalink to this headline">¶</a></h2>
 <p>Here are some examples.</p>
 <div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">pcbdraw</span><span class="p">::</span> UPduino_v3.0.kicad_pcb
@@ -100,7 +101,7 @@
 <p class="admonition-title">Error</p>
 <p>sphinx-pcbdraw: File does not exist: ThisFileDoesntExist.kicad_pcb</p>
 </div>
-<div class="section" id="options">
+<section id="options">
 <h3>options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">pcbdraw</span><span class="p">::</span> path/to/pcb.kicad_pcb
    <span class="nc">:style:</span> <span class="nf">path/to/style.json           # select a path/to/style.json</span>
@@ -116,9 +117,9 @@
    <span class="nc">:width:</span>                              <span class="nf"># width of the resulting image, defaults to 100%</span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="pcb-components-directive">
+</section>
+</section>
+<section id="pcb-components-directive">
 <h2>pcb-components directive<a class="headerlink" href="#pcb-components-directive" title="Permalink to this headline">¶</a></h2>
 <p>A list of all the components on a board can be created using this directive. It will default to only showing the components on the front side:</p>
 <div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">pcb-components</span><span class="p">::</span> UPduino_v3.0.kicad_pcb
@@ -134,8 +135,8 @@
    <span class="nc">:side:</span> <span class="nf">both</span>
 </pre></div>
 </div>
-<table class='docutils'><tr><th>Library</th><th>Component</th></tr><tr><td></td><td>6_PIN_SERIAL_TARGET_SIDE_W_SILK</td></tr><tr><td>Aesthetics</td><td>OSHW-LOGO-MINI</td></tr><tr><td>Capacitors_SMD</td><td>C_1206_HandSoldering</td></tr><tr><td>LEDs</td><td>LED_1206_HandSoldering</td></tr><tr><td>Resistors_SMD</td><td>R_1206_HandSoldering</td></tr><tr><td>lib</td><td>1X15_LOCK</td></tr><tr><td>lib</td><td>BREADBOARD_SPACING_80mm</td></tr><tr><td>lib</td><td>DuckTapeApproved-MIT</td></tr><tr><td>lib</td><td>GDG-logo-mono-withouttext-h5.6</td></tr><tr><td>lib</td><td>MakeZurich-15x11-silk</td></tr><tr><td>lib</td><td>NINA-W102</td></tr><tr><td>lib</td><td>SMT-JUMPER_2_NC_TRACE_SILK</td></tr><tr><td>switchessilicone</td><td>TACTILE_SWITCH_SMD_6.0X6.0MM</td></tr></table></div>
-<div class="section" id="todo">
+<table class='docutils'><tr><th>Library</th><th>Component</th></tr><tr><td></td><td>6_PIN_SERIAL_TARGET_SIDE_W_SILK</td></tr><tr><td>Aesthetics</td><td>OSHW-LOGO-MINI</td></tr><tr><td>Capacitors_SMD</td><td>C_1206_HandSoldering</td></tr><tr><td>LEDs</td><td>LED_1206_HandSoldering</td></tr><tr><td>Resistors_SMD</td><td>R_1206_HandSoldering</td></tr><tr><td>lib</td><td>1X15_LOCK</td></tr><tr><td>lib</td><td>BREADBOARD_SPACING_80mm</td></tr><tr><td>lib</td><td>DuckTapeApproved-MIT</td></tr><tr><td>lib</td><td>GDG-logo-mono-withouttext-h5.6</td></tr><tr><td>lib</td><td>MakeZurich-15x11-silk</td></tr><tr><td>lib</td><td>NINA-W102</td></tr><tr><td>lib</td><td>SMT-JUMPER_2_NC_TRACE_SILK</td></tr><tr><td>switchessilicone</td><td>TACTILE_SWITCH_SMD_6.0X6.0MM</td></tr></table></section>
+<section id="todo">
 <h2>TODO<a class="headerlink" href="#todo" title="Permalink to this headline">¶</a></h2>
 <p>pcbdraw global options</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sphinx_pcbdraw_libs</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;lib/folder/one&quot;</span><span class="p">,</span> <span class="s2">&quot;lib/folder/two&quot;</span><span class="p">]</span> <span class="c1"># library folders to include for generation</span>
@@ -144,14 +145,14 @@
 <span class="n">sphinx_pcbdraw_hidden</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;component1&quot;</span><span class="p">,</span> <span class="s2">&quot;component2&quot;</span><span class="p">]</span> <span class="c1"># list of components to hide from all designs</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="license">
+</section>
+<section id="license">
 <h2>License<a class="headerlink" href="#license" title="Permalink to this headline">¶</a></h2>
 <p>sphinx-pcbdraw is under the MIT license. Source code is avaiable at <a class="reference external" href="https://github.com/nobodywasishere/sphinx-pcbdraw">https://github.com/nobodywasishere/sphinx-pcbdraw</a>.</p>
 <p>Example kicad_pcb file <cite>UPduino_v3.0.kicad_pcb</cite> from <a class="reference external" href="https://github.com/tinyvision-ai-inc/UPduino-v3.0">https://github.com/tinyvision-ai-inc/UPduino-v3.0</a>, Copyright tinyvision-ai-inc under the MIT License.</p>
 <p>Example kicad_pcb file <cite>NINA-W102_minimal_breakout.kicad_pcb</cite> from <a class="reference external" href="https://github.com/rac2030/breakout-boards">https://github.com/rac2030/breakout-boards</a>, Copyright Michel Racic under the MIT License.</p>
-</div>
-</div>
+</section>
+</section>
 
 
           </div>
@@ -164,7 +165,7 @@
       &copy;2021 Michael Riegert.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.4</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.0.2</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
