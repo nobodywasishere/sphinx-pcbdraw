@@ -19,9 +19,11 @@ jobs:
     - name: Install deps
       run: |
         sudo apt-get update
-        sudo apt-get install -y --no-install-recommends kicad kicad-libraries zip \
-            inkscape make git libmagickwand-dev python3 python3-pip python3-wheel \
-            python3-setuptools inkscape libgraphicsmagick1-dev libmagickcore-dev openscad
+        # sudo apt-get install -y --no-install-recommends kicad kicad-libraries zip \
+        #     inkscape make git libmagickwand-dev python3 python3-pip python3-wheel \
+        #     python3-setuptools inkscape libgraphicsmagick1-dev libmagickcore-dev openscad
+        sudo apt-get install -y --no-install-recommends kicad kicad-libraries python3 \
+            python3-pip python3-setuptools
         sudo pip3 install \
             "Pcbdraw ~= 0.6" \
             "numpy ~= 1.20" \
@@ -31,10 +33,6 @@ jobs:
             "pybars3 ~= 0.9" \
             "solidpython ~= 1.1" \
             sphinx
-        # git clone https://github.com/yaqwsx/KiKit
-        # cd KiKit
-        # sudo python3 setup.py install
-        cd ..
         mkdir -p ~/.local/share/pcbdraw/footprints/
         git clone https://github.com/yaqwsx/PcbDraw-Lib/
         cp -r PcbDraw-Lib/* ~/.local/share/pcbdraw/footprints/
