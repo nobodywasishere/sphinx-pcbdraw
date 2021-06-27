@@ -31,15 +31,12 @@ jobs:
             "pybars3 ~= 0.9" \
             "solidpython ~= 1.1" \
             sphinx
-        git clone https://github.com/yaqwsx/KiKit
-        cd KiKit
-        sudo python3 setup.py install
+        # git clone https://github.com/yaqwsx/KiKit
+        # cd KiKit
+        # sudo python3 setup.py install
         cd ..
         mkdir -p ~/.local/share/pcbdraw/footprints/
         git clone https://github.com/yaqwsx/PcbDraw-Lib/
-        echo ls:
-        ls
-        echo
         cp -r PcbDraw-Lib/* ~/.local/share/pcbdraw/footprints/
         cat ~/.local/share/pcbdraw/footprints/README.md
     - name: Build docs
